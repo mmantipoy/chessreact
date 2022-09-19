@@ -1,0 +1,50 @@
+* {
+
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  
+  background-color: lightcyan;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  
+}
+
+.board {
+
+
+  width: calc(64px * 8);
+  height: calc(64px * 8);
+  flex-wrap: wrap;
+  display: flex;
+  border: 1px solid black;
+}
+
+.cell{
+
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.black {
+
+  background-color: gray;
+}
+
+.white {
+
+  background-color: lightgoldenrodyellow;
+}
+
+
+
+
+
