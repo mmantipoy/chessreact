@@ -1,5 +1,7 @@
+import logo from "../../assets/chess/png/chess-bishop-solid-white.png";
+
 import { Color } from "../Color";
-import logo from '../../assets/chess/png/chess-bishop-solid-white.png'
+
 import { Cell } from "../Cell";
 
 export enum FigureNamespace {
@@ -19,8 +21,9 @@ export class Figure {
     color: Color;
     logo: typeof logo | null;
     name: FigureNamespace;
-    cell: Cell
-    id: number
+    cell: Cell;
+    isFistStep: boolean;
+    // id: number
 
     constructor (color: Color, cell: Cell){
 
@@ -29,7 +32,26 @@ export class Figure {
         this.cell.figure = this;
         this.logo = null;
         this.name = FigureNamespace.FIGURE
-        this.id = Math.random();
+        this.isFistStep = true;
+        // this.id = Math.random();
+
+    }
+
+    
+    figureCanMove(cell: Cell): boolean{
+
+        if( cell.figure?.color === this.color ){
+            return false 
+        } 
+        if ( cell.figure?.name === FigureNamespace.KING)
+        {
+            return false
+        }
+        return true;
+
+    }
+
+    moveFigure(cell: Cell){
 
     }
 

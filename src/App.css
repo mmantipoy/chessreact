@@ -23,7 +23,9 @@
   flex-wrap: wrap;
   display: flex;
   border: 1px solid black;
+  
 }
+
 
 .cell{
 
@@ -33,16 +35,49 @@
   align-items: center;
   justify-content: center;
 }
+.cell img{
+
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 
 .black {
 
-  background-color: gray;
+  background-color: skyblue;
 }
 
 .white {
 
-  background-color: lightgoldenrodyellow;
+  background-color: rgba(255, 166, 0, 0.800);
 }
+
+.blue {
+
+  background-color: blue;
+}
+
+.acceptedFigure {
+
+  background-color: red;
+}
+
+.selected{
+
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: blue;
+  display: ;
+  align-items: center;
+  justify-content: center;
+
+}
+
+
 
 
 

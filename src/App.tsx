@@ -12,12 +12,14 @@ function App() {
   useEffect ( () => {
 
     restart()
+    
   }, [])
   
   function restart(){
 
     const newBoard = new Board();
-    newBoard.createBoard()
+    newBoard.createBoard();
+    newBoard.addFigure();
     setBoard(newBoard)
     console.log(board);
   }
