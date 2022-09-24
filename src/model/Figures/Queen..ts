@@ -17,13 +17,17 @@ export class Queen extends Figure {
     }
 
     figureCanMove(cell: Cell): boolean{
-        if ( !this.cell.checkVerticalForMove(cell)){
+        if ( !super.figureCanMove(cell)){
             return false
         }
-        if( !super.figureCanMove(cell)){
-            return false
-        }
-        return true;
+
+        if ( this.cell.checkVerticalForMove(cell) ) { return true }
+            
+        if ( this.cell.checkHorizontalForMove(cell) ) { return true }
+        
+        if ( this.cell.checkDiagonalForMove(cell) ) { return true }
+        
+        return false;
 
     }
 }

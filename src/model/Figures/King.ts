@@ -17,11 +17,14 @@ export class King extends Figure {
     }
 
     figureCanMove(cell: Cell): boolean{
-
-        if( !super.figureCanMove(cell)){
+        if ( !super.figureCanMove(cell)){
             return false
         }
-        return true;
+
+        if ( this.cell.checkKingForMove(cell) ) { return true }
+
+        
+        return false;
 
     }
 }

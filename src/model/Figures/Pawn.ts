@@ -6,6 +6,7 @@ import whiteBG from '../../assets/chess/png/chess-pawn-solid-white.png'
 
 export class Pawn extends Figure {
 
+    
 
     constructor(color: Color, cell: Cell) {
         
@@ -17,11 +18,14 @@ export class Pawn extends Figure {
     }
 
     figureCanMove(cell: Cell): boolean{
-
-        if( !super.figureCanMove(cell)){
+        if ( !super.figureCanMove(cell)){
             return false
         }
-        return true;
+
+        if ( this.cell.checkPawnForMove(cell) ) { return true }
+        
+        
+        return false;
 
     }
 }

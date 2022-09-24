@@ -73,15 +73,15 @@ export class Board {
         new Rook ( Color.WHITE , this.getCell(7 , 0) )
         new Rook ( Color.WHITE , this.getCell(7 , 7) )
 
-        new Bishop ( Color.BLACK , this.getCell(0 , 1) )
-        new Bishop ( Color.BLACK , this.getCell(0 , 6) )
-        new Bishop ( Color.WHITE , this.getCell(7 , 1) )
-        new Bishop ( Color.WHITE , this.getCell(7 , 6) )
+        new Knight ( Color.BLACK , this.getCell(0 , 1) )
+        new Knight ( Color.BLACK , this.getCell(0 , 6) )
+        new Knight ( Color.WHITE , this.getCell(7 , 1) )
+        new Knight ( Color.WHITE , this.getCell(7 , 6) )
 
-        new Knight ( Color.BLACK , this.getCell(0 , 2) )
-        new Knight ( Color.BLACK , this.getCell(0 , 5) )
-        new Knight ( Color.WHITE , this.getCell(7 , 2) )
-        new Knight ( Color.WHITE , this.getCell(7 , 5) )
+        new Bishop ( Color.BLACK , this.getCell(0 , 2) )
+        new Bishop ( Color.BLACK , this.getCell(0 , 5) )
+        new Bishop ( Color.WHITE , this.getCell(7 , 2) )
+        new Bishop ( Color.WHITE , this.getCell(7 , 5) )
 
         new King ( Color.BLACK , this.getCell(0 , 3) )
         new Queen ( Color.BLACK , this.getCell(0 , 4) )
