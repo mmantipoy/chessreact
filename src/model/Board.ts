@@ -83,10 +83,10 @@ export class Board {
         new Bishop ( Color.WHITE , this.getCell(7 , 2) )
         new Bishop ( Color.WHITE , this.getCell(7 , 5) )
 
-        new King ( Color.BLACK , this.getCell(0 , 3) )
-        new Queen ( Color.BLACK , this.getCell(0 , 4) )
-        new King ( Color.WHITE , this.getCell(7 , 3) )
-        new Queen ( Color.WHITE , this.getCell(7 , 4) )
+        new Queen ( Color.BLACK , this.getCell(0 , 3) )
+        new King ( Color.BLACK , this.getCell(0 , 4) )
+        new Queen ( Color.WHITE , this.getCell(7 , 3) )
+        new King ( Color.WHITE , this.getCell(7 , 4) )
         
     }
 }

@@ -6,6 +6,7 @@ import { Board } from './model/Board';
 import { TimerComp } from './components/TimerComponent';
 import { Color } from './model/Color';
 import { Figure, FigureNamespace } from './model/Figures/Figure';
+import { copyFile } from 'fs';
 
 
 function App() {
@@ -60,6 +61,7 @@ function App() {
 
     let copy = Object.assign([], eatenBlackFig);
     copy.push(figure)
+    copy.sort()
     seteatenBlackFig( copy)
 
   }
@@ -67,6 +69,7 @@ function App() {
 
     let copy = Object.assign([], eatenWhiteFig);
     copy.push(figure)
+    copy.sort()
     seteatenWhiteFig( copy)
 
   }
@@ -105,7 +108,7 @@ function App() {
 
       <BoardComp board={board} setBoard={setBoard} 
         currentPlayer={currentPlayer} setcurrentPlayer={setcurrentPlayer}
-        blackTime={blackTime} whiteTime={whiteTime} setblackTime={setblackTime} setwhiteTime={setwhiteTime}
+        blackTime={blackTime} whiteTime={whiteTime} 
         addeatenBlackFig={addeatenBlackFig} addeatenWhiteFig={addeatenWhiteFig} eatenBlackFig={eatenBlackFig}
         eatenWhiteFig={eatenWhiteFig} firstMoveInGame={firstMoveInGame} chfirstMoveInGame={chfirstMoveInGame}
          startTimer={startTimer}

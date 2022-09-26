@@ -16,8 +16,8 @@ interface BoardProps{
     setBoard: (board: Board) => void;
     setcurrentPlayer: (player: Color) => void;
     
-    setwhiteTime: any;
-    setblackTime: any;
+    // setwhiteTime: any;
+    // setblackTime: any;
     currentPlayer: Color;
     blackTime: number;
     whiteTime: number
@@ -34,7 +34,7 @@ interface BoardProps{
 }
 
 export function BoardComp({ board, setBoard, currentPlayer, setcurrentPlayer, 
-    blackTime, whiteTime, setblackTime, setwhiteTime,
+    blackTime, whiteTime,
     eatenWhiteFig, eatenBlackFig, addeatenWhiteFig, addeatenBlackFig,
     firstMoveInGame, chfirstMoveInGame, startTimer
     }: BoardProps){  
@@ -43,8 +43,6 @@ export function BoardComp({ board, setBoard, currentPlayer, setcurrentPlayer,
 
     // const [eatenBlackFig, seteatenBlackFig] = useState<Figure[]>([])
     // const [eatenWhiteFig, seteatenWhiteFig] = useState<Figure[]>([])
-
-
 
     useEffect ( () => {
 
@@ -66,12 +64,13 @@ export function BoardComp({ board, setBoard, currentPlayer, setcurrentPlayer,
                 
             }
             
-            if ( cell.figure ){
+            if ( cell.figure && cell.figure.color !== selectedCell.figure.color){
 
                 if ( cell.figure.color === Color.BLACK){
                     
                     addeatenWhiteFig(cell.figure)
                 } else {
+
                     addeatenBlackFig(cell.figure)
                 }
                 
@@ -109,6 +108,7 @@ return (
         <div className='ert'>
 
             <PlayerInfoComp currentPlayer={currentPlayer} timer={blackTime} eatenFig={eatenBlackFig} 
+            oponentEatenFig={eatenWhiteFig} 
             infoType='blackInfo' />
             <div className='board'>
                 
@@ -123,7 +123,8 @@ return (
                     )}
                 </React.Fragment>)}
             </div>
-            <PlayerInfoComp currentPlayer={currentPlayer} timer={whiteTime} eatenFig={eatenWhiteFig} 
+            <PlayerInfoComp currentPlayer={currentPlayer} timer={whiteTime} eatenFig={eatenWhiteFig}
+            oponentEatenFig={eatenBlackFig}  
             infoType='whiteInfo' />
 
         </div>

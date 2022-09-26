@@ -6,7 +6,7 @@
 
 .App {
   
-  background-color: lightcyan;
+  background-color: rgba(150, 75, 0, 0.600);
   width: 100vw;
   height: 100vh;
   align-items: center;
@@ -50,22 +50,23 @@
 
 .black {
 
-  background-color: skyblue;
+  background-color: rgb(150, 75, 0);;
 }
 
 .white {
 
-  background-color: rgba(255, 166, 0, 0.800);
+  /* background-color: rgba(255, 166, 0, 0.800); */
+  background-color: rgb(221, 111, 0);
 }
 
 .blue {
 
-  background-color: blue;
+  background-color: lightseagreen;
 }
 
 .acceptedFigure {
 
-  background-color: red;
+  background-color: blueviolet;
 }
 
 .selected{
@@ -73,7 +74,7 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background-color: blue;
+  background-color: lightseagreen;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -122,6 +123,7 @@
   /* border: 1px solid black; */
   min-height: 30px;
   margin-top: 4px;
+  position: relative;
 
 
 }
@@ -141,5 +143,10 @@
   justify-content: center;
 }
 
+.eatenInfo__eatenFig_advantage {
+
+  position: absolute;
+    top: 0%;
+}
 
 

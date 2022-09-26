@@ -9,15 +9,35 @@ interface PlayerInfoProps{
     currentPlayer: Color;
     timer: number;
     eatenFig: Figure[];
+    oponentEatenFig: Figure[];
 
     infoType: 'blackInfo' | 'whiteInfo'
 }
 
-export function PlayerInfoComp({ currentPlayer, timer, eatenFig, infoType} : PlayerInfoProps){  
+export function PlayerInfoComp({ currentPlayer, timer, eatenFig, infoType, oponentEatenFig} : PlayerInfoProps){  
 
     const min = doubleTimeLength(Math.floor(timer / 60))
     const sec = doubleTimeLength(timer - parseInt(min) * 60)
     
+    const countAdd = () => {
+
+        let c1: number = 0;
+        let c2: number = 0;
+
+        eatenFig.map( (item) => c1 = c1 + item.weight)
+        oponentEatenFig.map( (item) => c2 = c2 + item.weight)
+
+        return (
+            <>
+                { c1 > c2 &&  <> 
+                <span className='eatenInfo__eatenFig_advantage'>
+                    {'+' + (c1 - c2)}
+                </span>
+                </>}
+            </>
+        )
+
+    }
 
     return (
         <>  
@@ -40,6 +60,7 @@ export function PlayerInfoComp({ currentPlayer, timer, eatenFig, infoType} : Pla
                 <div className='eatenInfo__eatenFig'>
                     {eatenFig.map( (item) => <ImageEaten src={item.logo} /> )}
                     
+                    {countAdd()}
                 </div>
             </div>
         </>

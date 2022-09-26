@@ -141,12 +141,6 @@ export class Cell{
 
     checkKingForMove(cell: Cell){
 
-        const moves = [
-            [-1,-1],[-1,0],[-1,+1],
-            [0,-1]        ,[0,+1],
-            [+1,-1],[+1,0],[+1,+1],
-        ]
-
         const absoluteX = Math.abs( this.x - cell.x );
         const absoluteY = Math.abs( this.y - cell.y );
         
@@ -159,22 +153,149 @@ export class Cell{
 
     }
 
+    checkKingFor00(cell: Cell){
+       
+
+        if ( this.figure?.isFistStep && cell.figure?.name === FigureNamespace.ROOK 
+            && cell.figure.isFistStep === true && this.x + 3 === cell.x && this.y === cell.y){
+
+            if ( this.board.getCell(this.y, this.x + 1).isEmpty() &&
+                    this.board.getCell(this.y, this.x + 2).isEmpty()){
+
+                
+                return true
+            }
+
+        }
+
+        return false
+
+    }
+    
+    checkCellFor00(cell: Cell){
+
+        if (cell.x === 6 && this.y === cell.y && this.board.getCell(cell.y, 7).figure &&
+            this.figure?.isFistStep && this.board.getCell(cell.y, 7).figure?.name === FigureNamespace.ROOK 
+            && this.board.getCell(cell.y, 7).figure?.isFistStep === true
+        ){
+
+            if ( cell.isEmpty() &&
+                this.board.getCell(cell.y, cell.x - 1).isEmpty()){
+
+                    return true
+                }
+        }
+
+        return false
+    }
+
+    checkKingFor000(cell: Cell){
+
+        if ( this.figure?.isFistStep && cell.figure?.name === FigureNamespace.ROOK 
+            && cell.figure.isFistStep === true && this.x - 4 === cell.x && this.y === cell.y){
+
+            if ( this.board.getCell(this.y, this.x - 1).isEmpty() &&
+                    this.board.getCell(this.y, this.x - 2).isEmpty() &&
+                        this.board.getCell(this.y, this.x - 3).isEmpty()){
+
+                
+                return true
+            }
+
+        }
+
+        return false
+
+    }
+
+    checkCellFor000(cell: Cell){
+
+        if (cell.x === 2 && this.y === cell.y && this.board.getCell(cell.y, 0).figure &&
+            this.figure?.isFistStep && this.board.getCell(cell.y, 0).figure?.name === FigureNamespace.ROOK 
+            && this.board.getCell(cell.y, 0).figure?.isFistStep === true
+        ){
+
+            if ( cell.isEmpty() &&
+                this.board.getCell(cell.y, cell.x + 1).isEmpty() &&
+                this.board.getCell(cell.y, cell.x - 1).isEmpty()){
+
+                    return true
+                }
+        }
+
+        return false
+    }
+
     setFigure(target: Figure){
 
         this.figure = target;
         this.figure.cell = this
     }
 
+    setFigure00(start: Figure ){
+
+        if ( this.figure) {
+        this.board.getCell(start.cell.y , start.cell.x + 1).setFigure(this.figure)
+        this.board.getCell(start.cell.y , start.cell.x + 2).setFigure(start)
+        }
+
+    }
+
+    setFigure000(start: Figure ){
+
+        if ( this.figure) {
+        this.board.getCell(start.cell.y , start.cell.x - 1).setFigure(this.figure)
+        this.board.getCell(start.cell.y , start.cell.x - 2).setFigure(start)
+        }
+
+    }
+
     moveFigure (target: Cell ){
         
         if (this.figure && this.figure?.figureCanMove(target)) {
 
-            
-            this.figure.moveFigure(target)
-            
-            target.setFigure(this.figure);
-            if( target.figure) target.figure.isFistStep = false;
-            this.figure = null
+            if (this.figure.name === FigureNamespace.KING  &&  this.figure.cell.checkKingFor00(target) ){
+
+                // this.figure.moveFigure(target)
+                // console.log('object');
+                target.setFigure00(this.figure);
+                this.figure = null
+                target.figure = null
+
+
+            } else if (this.figure.name === FigureNamespace.KING  &&  this.figure.cell.checkCellFor00(target) ){
+
+                // this.figure.moveFigure(target)
+                // console.log('object');
+                this.board.getCell(target.y, target.x + 1).setFigure00(this.figure)
+                
+                this.figure = null
+                this.board.getCell(target.y, target.x + 1).figure = null
+
+
+            }
+            else if (this.figure.name === FigureNamespace.KING &&  this.figure.cell.checkKingFor000(target) ){
+
+                target.setFigure000(this.figure);
+                this.figure = null
+                target.figure = null
+
+            } else if (this.figure.name === FigureNamespace.KING &&  this.figure.cell.checkCellFor000(target) ){
+
+                this.board.getCell(target.y, target.x - 2).setFigure000(this.figure);
+                this.figure = null
+                this.board.getCell(target.y, target.x - 2).figure = null
+
+            }
+            else {
+                
+                // this.figure.moveFigure(target)
+
+                target.setFigure(this.figure);
+                if( target.figure) target.figure.isFistStep = false;
+                this.figure = null
+            }
+
         }
     }
 }

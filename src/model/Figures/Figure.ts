@@ -16,6 +16,19 @@ export enum FigureNamespace {
 
 }
 
+export enum FigureWeight {
+
+    FIGURE= 0,
+    KING= 1000,
+    KNIGHT= 3,
+    PAWN= 1,
+    QUEEN= 9,
+    ROOK= 5,
+    BISHOP= 3,
+
+}
+
+
 export class Figure {
 
     color: Color;
@@ -23,6 +36,7 @@ export class Figure {
     name: FigureNamespace;
     cell: Cell;
     isFistStep: boolean;
+    weight: FigureWeight;
     // id: number
 
     constructor (color: Color, cell: Cell){
@@ -34,6 +48,7 @@ export class Figure {
         this.name = FigureNamespace.FIGURE
         this.isFistStep = true;
         // this.id = Math.random();
+        this.weight = FigureWeight.FIGURE;
 
     }
 
