@@ -6,6 +6,7 @@ import whiteBG from '../../assets/chess/png/chess-knight-solid-white.png'
 
 export class Knight extends Figure {
 
+    
 
     constructor(color: Color, cell: Cell) {
         
@@ -27,5 +28,15 @@ export class Knight extends Figure {
         
         return false;
 
+    }
+
+    figureCanCheck(cell: Cell): boolean {
+        if ( !super.figureCanCheck(cell)){
+            return false
+        }
+
+        if ( this.cell.checkKnightForMove(cell) ) { return true }
+        
+        return false;
     }
 }

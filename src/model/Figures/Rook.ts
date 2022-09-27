@@ -29,4 +29,16 @@ export class Rook extends Figure {
         return false;
 
     }
+
+    figureCanCheck(cell: Cell): boolean {
+        if ( !super.figureCanCheck(cell)){
+            return false
+        }
+
+        if ( this.cell.checkVerticalForMove(cell) ) { return true }
+            
+        if ( this.cell.checkHorizontalForMove(cell) ) { return true }
+        
+        return false;
+    }
 }

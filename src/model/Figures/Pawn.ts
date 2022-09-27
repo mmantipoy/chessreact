@@ -29,4 +29,14 @@ export class Pawn extends Figure {
         return false;
 
     }
+    
+    figureCanCheck(cell: Cell): boolean {
+        if ( !super.figureCanCheck(cell)){
+            return false
+        }
+
+        if ( this.cell.checkPawnForMove(cell) ) { return true }
+        
+        return false;
+    }
 }

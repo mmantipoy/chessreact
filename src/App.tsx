@@ -42,6 +42,7 @@ function App() {
     const newBoard = new Board();
     newBoard.createBoard();
     newBoard.addFigure();
+    
 
     setcurrentPlayer(Color.WHITE)
     setblackTime(30 * 60)

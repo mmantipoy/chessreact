@@ -49,9 +49,19 @@ export function BoardComp({ board, setBoard, currentPlayer, setcurrentPlayer,
         showGoodCells()
         
       }, [selectedCell])
-    
-    
 
+    //   useEffect ( () => {
+
+    //     xdd()
+        
+    //   }, [currentPlayer])
+    
+    
+    function xdd(){
+        
+        board.checkKings()
+    
+    }
 
     function cellCelect(cell: Cell){
 
@@ -76,8 +86,10 @@ export function BoardComp({ board, setBoard, currentPlayer, setcurrentPlayer,
                 
             }
             selectedCell.moveFigure(cell)
+            
+            
             setselectedCell(null)
-            reranderBoard()
+            reranderBoard() 
             let pl = currentPlayer === Color.BLACK ? Color.WHITE : Color.BLACK
             setcurrentPlayer(pl)
             
@@ -92,13 +104,14 @@ export function BoardComp({ board, setBoard, currentPlayer, setcurrentPlayer,
 
     function showGoodCells(){
         board.showGoodCells(selectedCell)
+        
         reranderBoard()
     }
 
     function reranderBoard(){
 
         const newBoard = board.getBoardCopy()
-
+        newBoard.checkForCheck()
         setBoard(newBoard)
     }
 

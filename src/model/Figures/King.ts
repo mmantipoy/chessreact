@@ -6,7 +6,8 @@ import whiteBG from '../../assets/chess/png/chess-king-solid-white.png'
 
 export class King extends Figure {
 
-
+    check: boolean = false
+    
     constructor(color: Color, cell: Cell) {
         
         super(color, cell)

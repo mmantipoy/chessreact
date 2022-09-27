@@ -66,6 +66,16 @@ export class Figure {
 
     }
 
+    figureCanCheck(cell: Cell): boolean{
+
+        if( cell.figure?.color === this.color ){
+            return false 
+        } 
+        
+        return true;
+
+    }
+
     moveFigure(cell: Cell){
 
     }
