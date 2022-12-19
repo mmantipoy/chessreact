@@ -108,9 +108,9 @@ export function MoveComp({whitePlayerMoves, blackPlayerMoves, returnMove}: MoveP
             </div>
 
             <div className='moveHistory__buttons'>
-                    <button onClick={returnLastMove}>
+                    {/* <button onClick={returnLastMove}>
                         Вернуть ход
-                    </button>
+                    </button> */}
 
             </div>
             </div>
