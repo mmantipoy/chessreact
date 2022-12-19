@@ -1,6 +1,6 @@
 import { Cell } from "../Cell";
 import { Color } from "../Color";
-import { Figure, FigureNamespace, FigureWeight } from "./Figure";
+import { Figure, FigureNamespace, FigureToCode, FigureWeight } from "./Figure";
 import blackBG from '../../assets/chess/png/chess-rook-solid-black.png'
 import whiteBG from '../../assets/chess/png/chess-rook-solid-white.png'
 
@@ -15,6 +15,7 @@ export class Rook extends Figure {
 
         this.name = FigureNamespace.ROOK
         this.weight = FigureWeight.ROOK
+        this.code = FigureToCode.ROOK
     }
 
     figureCanMove(cell: Cell): boolean{

@@ -1,6 +1,6 @@
 import { Cell } from "../Cell";
 import { Color } from "../Color";
-import { Figure, FigureNamespace, FigureWeight } from "./Figure";
+import { Figure, FigureNamespace, FigureToCode, FigureWeight } from "./Figure";
 import blackBG from '../../assets/chess/png/chess-pawn-solid-black.png'
 import whiteBG from '../../assets/chess/png/chess-pawn-solid-white.png'
 
@@ -16,6 +16,7 @@ export class Pawn extends Figure {
 
         this.name = FigureNamespace.PAWN
         this.weight = FigureWeight.PAWN
+        this.code = FigureToCode.PAWN
     }
 
     figureCanMove(cell: Cell): boolean{

@@ -9,7 +9,7 @@ export class Cell{
     readonly y: number;
 
     readonly color: Color;
-
+    
     figure: Figure | null;
     board: Board;
     

@@ -158,4 +158,25 @@ export class Board {
         this.whiteKing =  new King ( Color.WHITE , this.getCell(7 , 4) )
 
     }
+
+    public puc(){
+        new Rook ( Color.BLACK , this.getCell(5 , 5) )
+    }
+
+    public hruc(){
+
+        for ( let i = 0; i < 8; i++){
+
+            
+
+            for ( let w = 0; w < 8; w++){
+
+                if ( this.getCell( i, w).figure )
+                    this.cells[i][w].figure = null
+                    
+            }
+
+
+        }
+    }
 }

@@ -31,12 +31,15 @@ interface BoardProps{
     chfirstMoveInGame: (st: boolean) => void;
 
     startTimer: () => void;
+
+    addwhitePlayerMoves: (cell: Cell, figure: Figure, selectedCell: Cell, currentBoard: Board, eatenFig: Figure | null) => void
+    addblackPlayerMoves: (cell: Cell, figure: Figure, selectedCell: Cell, currentBoard: Board, eatenFig: Figure | null) => void
 }
 
 export function BoardComp({ board, setBoard, currentPlayer, setcurrentPlayer, 
     blackTime, whiteTime,
     eatenWhiteFig, eatenBlackFig, addeatenWhiteFig, addeatenBlackFig,
-    firstMoveInGame, chfirstMoveInGame, startTimer
+    firstMoveInGame, chfirstMoveInGame, startTimer, addwhitePlayerMoves, addblackPlayerMoves
     }: BoardProps){  
 
     const [selectedCell , setselectedCell] = useState<Cell | null>(null)
@@ -85,7 +88,13 @@ export function BoardComp({ board, setBoard, currentPlayer, setcurrentPlayer,
                 }
                 
             }
+            if ( currentPlayer === Color.BLACK)
+            addblackPlayerMoves(cell, selectedCell.figure, selectedCell, board, cell.figure ? cell.figure : null)
+            else addwhitePlayerMoves(cell, selectedCell.figure, selectedCell, board, cell.figure ? cell.figure : null)
+            console.log('object');
             selectedCell.moveFigure(cell)
+
+            
             
             
             setselectedCell(null)

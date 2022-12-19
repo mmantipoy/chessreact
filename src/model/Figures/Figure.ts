@@ -28,6 +28,17 @@ export enum FigureWeight {
 
 }
 
+export enum FigureToCode {
+
+    FIGURE= '',
+    KING= 'K',
+    KNIGHT= 'N',
+    PAWN= '',
+    QUEEN= 'Q',
+    ROOK= 'R',
+    BISHOP= 'B',
+
+}
 
 export class Figure {
 
@@ -37,6 +48,7 @@ export class Figure {
     cell: Cell;
     isFistStep: boolean;
     weight: FigureWeight;
+    code: FigureToCode;
     // id: number
 
     constructor (color: Color, cell: Cell){
@@ -49,6 +61,7 @@ export class Figure {
         this.isFistStep = true;
         // this.id = Math.random();
         this.weight = FigureWeight.FIGURE;
+        this.code = FigureToCode.FIGURE
 
     }
 

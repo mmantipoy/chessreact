@@ -1,6 +1,6 @@
 import { Cell } from "../Cell";
 import { Color } from "../Color";
-import { Figure, FigureNamespace, FigureWeight } from "./Figure";
+import { Figure, FigureNamespace, FigureToCode, FigureWeight } from "./Figure";
 import blackBG from '../../assets/chess/png/chess-knight-solid-black.png'
 import whiteBG from '../../assets/chess/png/chess-knight-solid-white.png'
 
@@ -16,6 +16,7 @@ export class Knight extends Figure {
 
         this.name = FigureNamespace.KNIGHT
         this.weight = FigureWeight.KNIGHT
+        this.code = FigureToCode.KNIGHT
     }
 
     figureCanMove(cell: Cell): boolean{

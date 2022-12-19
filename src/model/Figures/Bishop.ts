@@ -1,6 +1,6 @@
 import { Cell } from "../Cell";
 import { Color } from "../Color";
-import { Figure, FigureNamespace, FigureWeight } from "./Figure";
+import { Figure, FigureNamespace, FigureToCode, FigureWeight } from "./Figure";
 import blackBG from '../../assets/chess/png/chess-bishop-solid-black.png'
 import whiteBG from '../../assets/chess/png/chess-bishop-solid-white.png'
 
@@ -15,6 +15,7 @@ export class Bishop extends Figure {
 
         this.name = FigureNamespace.BISHOP
         this.weight = FigureWeight.BISHOP
+        this.code = FigureToCode.BISHOP
     }
 
 
